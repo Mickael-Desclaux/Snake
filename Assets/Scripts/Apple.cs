@@ -3,8 +3,8 @@ using Random = UnityEngine.Random;
 
 public class Apple : MonoBehaviour
 {
-    private int _positionXMax = 10;
-    private int _positionYMax = 10;
+    private int _positionXMax = 12;
+    private int _positionYMax = 6;
 
     private void Start()
     {

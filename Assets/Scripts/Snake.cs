@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,6 +13,12 @@ public class Snake : MonoBehaviour
     private Vector3 _nextDirection;
     private List<Transform> _tailParts = new();
     private Vector3 _lastTailPosition;
+    private Vector2 _gridSize;
+
+    private void Awake()
+    {
+        _gridSize = new Vector2(15, 8);
+    }
 
     private void Start()
     {
@@ -89,5 +96,27 @@ public class Snake : MonoBehaviour
         {
             _nextDirection = Vector3.right;
         }
+    }
+    
+    private void OnDrawGizmos()
+    {
+        // Define the bounds of the grid
+        float halfWidth = _gridSize.x;
+        float halfHeight = _gridSize.y;
+
+        // Define the corners of the rectangle
+        Vector3 topLeft = new Vector3(-halfWidth, halfHeight, 0);
+        Vector3 topRight = new Vector3(halfWidth, halfHeight, 0);
+        Vector3 bottomLeft = new Vector3(-halfWidth, -halfHeight, 0);
+        Vector3 bottomRight = new Vector3(halfWidth, -halfHeight, 0);
+
+        // Set the color to red
+        Gizmos.color = Color.red;
+
+        // Draw the wireframe rectangle
+        Gizmos.DrawLine(topLeft, topRight);
+        Gizmos.DrawLine(topRight, bottomRight);
+        Gizmos.DrawLine(bottomRight, bottomLeft);
+        Gizmos.DrawLine(bottomLeft, topLeft);
     }
 }
