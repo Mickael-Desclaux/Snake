@@ -1,18 +1,19 @@
-using System;
 using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
+    [SerializeField] private float _interval = 0.1f;
     private Vector3 _direction;
 
     private void Start()
     {
         _direction = Vector3.right;
+        InvokeRepeating(nameof(Move), 0, _interval);
     }
 
     private void Move()
     {
-        transform.position += _direction * Time.deltaTime;
+        transform.position += _direction;
     }
 
     private void HandleInput()
@@ -38,6 +39,5 @@ public class Snake : MonoBehaviour
     private void LateUpdate()
     {
         HandleInput();
-        Move();
     }
 }
