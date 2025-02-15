@@ -27,12 +27,13 @@ public class Snake : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Eat();
-
-        if (other.gameObject.layer == _layer)
+        if (((1 << other.gameObject.layer) & _layer.value) != 0)
         {
             GameOver();
+            return;
         }
+        
+        Eat();
     }
 
     private void Move()
