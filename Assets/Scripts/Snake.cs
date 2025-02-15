@@ -51,6 +51,15 @@ public class Snake : MonoBehaviour
             return;
         }
 
+        if (transform.position.x > _gridSize.x ||
+            transform.position.x < -_gridSize.x ||
+            transform.position.y > _gridSize.y ||
+            transform.position.y < -_gridSize.y)
+        {
+            GameOver();
+            return;
+        }
+
         _direction = _nextDirection;
         
         _lastTailPosition = _tailParts.Last().position;
