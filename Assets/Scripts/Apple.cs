@@ -15,15 +15,7 @@ public class Apple : MonoBehaviour
         transform.position = new Vector3(randomX, randomY, 0);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            UpdatePosition();
-        }
-    }
-
-    private void UpdatePosition()
+    public void UpdatePosition()
     {
         Vector3 currentPosition = transform.position;
         Vector3 lastPosition = currentPosition;

@@ -1,3 +1,5 @@
+using System;
+using UnityEditor;
 using UnityEngine;
 
 public class Snake : MonoBehaviour
@@ -9,6 +11,16 @@ public class Snake : MonoBehaviour
     {
         _direction = Vector3.right;
         InvokeRepeating(nameof(Move), 0, _interval);
+    }
+    private void LateUpdate()
+    {
+        HandleInput();
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        Apple apple = FindFirstObjectByType<Apple>();
+        apple.UpdatePosition();
     }
 
     private void Move()
@@ -34,10 +46,5 @@ public class Snake : MonoBehaviour
         {
             _direction = Vector3.right;
         }
-    }
-
-    private void LateUpdate()
-    {
-        HandleInput();
     }
 }
