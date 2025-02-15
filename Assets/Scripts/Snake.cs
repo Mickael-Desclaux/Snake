@@ -1,14 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Snake : MonoBehaviour
 {
     [SerializeField] private Transform _tailPrefab;
     [SerializeField] private float _interval = 0.1f;
+    [SerializeField] private LayerMask _layer;
     private Vector3 _direction;
     private Vector3 _nextDirection;
-    private List<Transform> _tailParts;
+    private List<Transform> _tailParts = new();
     private Vector3 _lastTailPosition;
 
     private void Start()
@@ -26,12 +28,18 @@ public class Snake : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Eat();
+
+        if (other.gameObject.layer == _layer)
+        {
+            GameOver();
+        }
     }
 
     private void Move()
     {
         if (_direction == -_nextDirection)
         {
+            GameOver();
             return;
         }
 
@@ -55,6 +63,11 @@ public class Snake : MonoBehaviour
         
         Transform newTail = Instantiate(_tailPrefab, _lastTailPosition, Quaternion.identity);
         _tailParts.Add(newTail);
+    }
+
+    private void GameOver()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void HandleInput()
