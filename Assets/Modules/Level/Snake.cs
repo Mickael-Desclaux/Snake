@@ -33,8 +33,9 @@ namespace Modules.Level
             {
                 return;
             }
-            
             _nextDirection = input;
+            CancelInvoke(nameof(Move));
+            InvokeRepeating(nameof(Move), 0, _interval);
         }
 
         private void Move()

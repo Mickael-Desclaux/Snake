@@ -24,13 +24,13 @@ namespace Modules.Controls
 
         private void OnEnable()
         {
-            _move.started += Move;
+            _move.performed += Move;
             _move.Enable();
         }
 
         private void OnDisable()
         {
-            _move.started -= Move;
+            _move.performed -= Move;
             _move.Disable();
         }
 

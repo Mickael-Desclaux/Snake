@@ -50,7 +50,7 @@ MonoBehaviour:
     m_ExpectedControlType: 
     m_Id: ce8a81cd-2dc0-4ddf-b3ab-1182e0c18448
     m_Processors: 
-    m_Interactions: 
+    m_Interactions: Press
     m_SingletonActionBindings:
     - m_Name: Arrows
       m_Id: fb707ef7-e174-4b26-a3f8-3b5a376f9370
