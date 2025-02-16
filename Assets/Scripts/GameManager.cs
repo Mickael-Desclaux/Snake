@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Snake _snakePrefab;
     [SerializeField] private GameObject _applePrefab;
+    private GameObject _apple;
+
+    public Vector2 ApplePosition;
     
     private void Awake()
     {
@@ -50,6 +53,13 @@ public class GameManager : MonoBehaviour
             position = new Vector3(gridRandomX, gridRandomY, 0);
         }
         
-        Instantiate(_applePrefab, position, Quaternion.identity);
+        ApplePosition = new Vector2(position.x, position.y);
+        _apple = Instantiate(_applePrefab, position, Quaternion.identity);
+    }
+
+    public void UpdateApplePosition()
+    {
+        Destroy(_apple);
+        SpawnApple();
     }
 }

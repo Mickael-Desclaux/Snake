@@ -11,6 +11,7 @@ namespace Modules.Level
         private Vector2 _nextDirection = Vector2.right;
 
         private ControlsManager _controlsManager = ControlsManager.Instance;
+        private GameManager _gameManager = GameManager.Instance;
 
         private void Start()
         {
@@ -42,6 +43,17 @@ namespace Modules.Level
         {
             _direction = _nextDirection;
             transform.position += new Vector3(_direction.x, _direction.y, 0);
+            
+            Vector3 applePosition = _gameManager.ApplePosition;
+            if (transform.position == applePosition)
+            {
+                Eat();
+            }
+        }
+
+        private void Eat()
+        {
+            _gameManager.UpdateApplePosition();
         }
     }
 }
