@@ -12,6 +12,7 @@ namespace Modules.Level
         
         [SerializeField] private Transform _tailPrefab;
         private List<Transform> _tailParts = new();
+        public List<Transform> TailParts => _tailParts;
         private Vector3 _lastTailPosition;
         
         private Vector2 _direction = Vector2.right;

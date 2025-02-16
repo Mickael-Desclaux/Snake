@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7635047dabc544ca4d20e348d58fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gridSize: {x: 15, y: 8}
+  _gridSize: {x: 16, y: 8}
   _snakePrefab: {fileID: -2535655443260695053, guid: e742a198a7bf65f4092fe29086c3197b, type: 3}
   _applePrefab: {fileID: 4527046814092683577, guid: 487b9702e603f9b42b7e61e37c0389f6, type: 3}
+  ApplePosition: {x: 0, y: 0}
