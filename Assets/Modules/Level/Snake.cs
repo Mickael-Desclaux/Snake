@@ -8,7 +8,7 @@ namespace Modules.Level
     {
         [SerializeField] private float _interval = 0.2f;
         private Vector2 _direction = Vector2.right;
-        private Vector2 _nextDirection;
+        private Vector2 _nextDirection = Vector2.right;
 
         private ControlsManager _controlsManager = ControlsManager.Instance;
 
