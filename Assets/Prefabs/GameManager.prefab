@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4714649165665330809
+--- !u!1 &635523377289360459
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9075022066975427423}
-  - component: {fileID: 3010499500413909815}
+  - component: {fileID: 3900912890512519882}
+  - component: {fileID: 2649026205945886771}
   m_Layer: 0
-  m_Name: Bootstrap
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9075022066975427423
+--- !u!4 &3900912890512519882
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4714649165665330809}
+  m_GameObject: {fileID: 635523377289360459}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,17 +32,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3010499500413909815
+--- !u!114 &2649026205945886771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4714649165665330809}
+  m_GameObject: {fileID: 635523377289360459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d89b009fa6f37c4589040fa4dd839e2, type: 3}
+  m_Script: {fileID: 11500000, guid: db7635047dabc544ca4d20e348d58fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controlsManagerPrefab: {fileID: 3443396264791710739, guid: 4f5554cd4804a7a4aba30fa319c66734, type: 3}
-  _gameManagerPrefab: {fileID: 2649026205945886771, guid: f18912cde6452f14ca82d2aacad6d29e, type: 3}
+  _gridSize: {x: 15, y: 8}
+  _snakePrefab: {fileID: -2535655443260695053, guid: e742a198a7bf65f4092fe29086c3197b, type: 3}
+  _applePrefab: {fileID: 4527046814092683577, guid: 487b9702e603f9b42b7e61e37c0389f6, type: 3}

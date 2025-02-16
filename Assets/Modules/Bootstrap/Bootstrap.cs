@@ -7,18 +7,12 @@ namespace Modules.Bootstrap
     public class Bootstrap : MonoBehaviour
     {
         [SerializeField] private ControlsManager _controlsManagerPrefab;
-
-        private void Awake()
-        {
-            if (_controlsManagerPrefab == null)
-            {
-                throw new NotImplementedException();
-            }
-        }
+        [SerializeField] private GameManager _gameManagerPrefab;
 
         private void Start()
         {
             Instantiate(_controlsManagerPrefab);
+            Instantiate(_gameManagerPrefab);
         }
     }
 }
