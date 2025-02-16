@@ -1,7 +1,7 @@
-using System;
 using System.Linq;
 using Modules.Level;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance => _instance;
     [SerializeField] private Vector2Int _gridSize = new Vector2Int(16, 8);
+    public Vector2Int GridSize => _gridSize;
 
     [SerializeField] private Snake _snakePrefab;
     private Snake _snake;
@@ -75,5 +76,10 @@ public class GameManager : MonoBehaviour
     {
         Destroy(_apple);
         SpawnApple();
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

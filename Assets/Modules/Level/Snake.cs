@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Modules.Controls;
 using UnityEngine;
@@ -61,6 +60,21 @@ namespace Modules.Level
             _direction = _nextDirection;
             transform.position += new Vector3(_direction.x, _direction.y, 0);
             
+            if (transform.position.x > _gameManager.GridSize.x / 2f ||
+                transform.position.x < -_gameManager.GridSize.x / 2f ||
+                transform.position.y > _gameManager.GridSize.y / 2f ||
+                transform.position.y < -_gameManager.GridSize.y /2f)
+            {
+                _gameManager.GameOver();
+                return;
+            }
+
+            if (HasBiteItself())
+            {
+                _gameManager.GameOver();
+                return;
+            }
+            
             Vector3 applePosition = _gameManager.ApplePosition;
             if (transform.position == applePosition)
             {
@@ -73,6 +87,19 @@ namespace Modules.Level
             _gameManager.UpdateApplePosition();
             Transform newTail = Instantiate(_tailPrefab, _lastTailPosition, Quaternion.identity);
             _tailParts.Add(newTail);
+        }
+        
+        private bool HasBiteItself()
+        {
+            for (int i = _tailParts.Count - 1; i > 0; i--)
+            {
+                if (_tailParts[i].position == transform.position)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
