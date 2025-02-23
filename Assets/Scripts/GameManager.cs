@@ -32,12 +32,7 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
-    private void Start()
-    {
-        NewGame();
-    }
-
-    private void NewGame()
+    public void NewGame()
     {
         CreateBorder();
         SpawnSnake();
