@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _applePrefab;
     private GameObject _apple;
 
+    [SerializeField] private GameObject _gameOverCanvasPrefab;
+
     public Vector2 ApplePosition { get; private set; }
     
     private void Awake()
@@ -99,6 +101,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Instantiate(_gameOverCanvasPrefab);
     }
 }

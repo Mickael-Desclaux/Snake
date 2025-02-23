@@ -65,12 +65,14 @@ namespace Modules.Level
                 transform.position.y > _gameManager.GridSize.y / 2f ||
                 transform.position.y < -_gameManager.GridSize.y /2f)
             {
+                CancelInvoke(nameof(Move));
                 _gameManager.GameOver();
                 return;
             }
 
             if (HasBiteItself())
             {
+                CancelInvoke(nameof(Move));
                 _gameManager.GameOver();
                 return;
             }
