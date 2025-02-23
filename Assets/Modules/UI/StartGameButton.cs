@@ -6,6 +6,7 @@ namespace Modules.UI
     [RequireComponent(typeof(Button))]
     public class StartGameButton : MonoBehaviour
     {
+        [SerializeField] private GameObject _canvas; 
         private Button _startGameButton;
 
         private void Awake()
@@ -17,7 +18,7 @@ namespace Modules.UI
         private void StartGame()
         {
             GameManager.Instance.NewGame();
-            _startGameButton.gameObject.SetActive(false);
+            _canvas.SetActive(false);
         }
 
         private void OnDestroy()
