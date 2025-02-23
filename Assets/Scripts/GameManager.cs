@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance => _instance;
     [SerializeField] private Vector2Int _gridSize = new Vector2Int(16, 8);
     public Vector2Int GridSize => _gridSize;
+    
+    [SerializeField] private GameObject _borderPrefab;
 
     [SerializeField] private Snake _snakePrefab;
     private Snake _snake;
@@ -37,8 +39,30 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
+        CreateBorder();
         SpawnSnake();
         SpawnApple();
+    }
+
+    private void CreateBorder()
+    {
+        for (int i = -_gridSize.x / 2 - 1; i <= _gridSize.x / 2 + 1; i++)
+        {
+            Vector3 bottomPosition = new Vector3(i, -_gridSize.y / 2f - 1, 0);
+            Vector3 topPosition = new Vector3(i, _gridSize.y / 2f + 1, 0);
+
+            Instantiate(_borderPrefab, bottomPosition, Quaternion.identity);
+            Instantiate(_borderPrefab, topPosition, Quaternion.identity);
+        }
+        
+        for (int j = -_gridSize.y / 2; j <= _gridSize.y / 2; j++)
+        {
+            Vector3 leftPosition = new Vector3(-_gridSize.x / 2f - 1, j, 0);
+            Vector3 rightPosition = new Vector3(_gridSize.x / 2f + 1, j, 0);
+
+            Instantiate(_borderPrefab, leftPosition, Quaternion.identity);
+            Instantiate(_borderPrefab, rightPosition, Quaternion.identity);     
+        }
     }
 
     private void SpawnSnake()

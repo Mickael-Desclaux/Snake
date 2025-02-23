@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gridSize: {x: 16, y: 8}
+  _borderPrefab: {fileID: 4004836963596305397, guid: 2f9dc038b071047469411a258092bcf7, type: 3}
   _snakePrefab: {fileID: -2535655443260695053, guid: e742a198a7bf65f4092fe29086c3197b, type: 3}
   _applePrefab: {fileID: 4527046814092683577, guid: 487b9702e603f9b42b7e61e37c0389f6, type: 3}
-  ApplePosition: {x: 0, y: 0}
